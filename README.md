@@ -1,0 +1,2 @@
+# TempladoSimulado
+Algoritmo templado simulado 
