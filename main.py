@@ -1,17 +1,18 @@
+from Analisis import *
 import math
 
 puntos = [[-7,-9],[9,-4],[6,-9],[7,1],[0,6],[-7,5],[9,-9],[4,8],[-1,9],[9,1]]
 
-al = -0.281694
-bl = 0.716913
+al = 0
+bl = 0
 
-ag = 10.9142
-bg = 0.119306
-cg = 1.2809
+ag = 0
+bg = 0
+cg = 0
 
-ac = -0.149584
-bc = 0.067697
-cc = 6.33026
+ac = 0
+bc = 0
+cc = 0
 
 def calcularLineal(x):
     return (al*x)+bl
@@ -28,6 +29,17 @@ def calcularDistanciasEuclidianas():
     sumaLineal = 0
     sumaGaussiana = 0
     sumaCuadratica = 0
+
+    global al, bl, ac, bc, cc, ag, bg, cg
+
+    al, bl = minimoErrorLineal()
+    ac, bc, cc = minimoErrorCuadratico()
+    ag, bg, cg = minimoErrorExponencial()
+
+    print("lineal: ", al, "\t", bl)
+    print("cuadratico: ", ac, "\t", bc, "\t", cc)
+    print("exponencial: ", ag, "\t", bg, "\t", cg)
+
     for par in puntos:
         yl = calcularLineal(par[0])
         yg = calcularGaussiana(par[0])

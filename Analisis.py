@@ -1,9 +1,9 @@
 from SemillaAleatoria import *
 import numpy as np
 
-puntos = [[3,6],[5,3],[5,8]]
+puntos = [[-7,-9],[9,-4],[6,-9],[7,1],[0,6],[-7,5],[9,-9],[4,8],[-1,9],[9,1]]
 
-poblacion = 5
+poblacion = 600
 
 def minimoErrorLineal():
     minA = -10
@@ -29,7 +29,7 @@ def minimoErrorLineal():
             rA = A
             rB = B
             rZ = Z
-    print("A: ",rA,"\tB: ",rB,"\tZ: ",rZ)
+    return A, B
 
 def minimoErrorCuadratico():
     minA = 0
@@ -88,13 +88,13 @@ def minimoErrorCuadratico():
             rB = B
             rC = C
             rZ = Z
-    print("A: ",rA,"\tB: ",rB,"\tC: ",rC,"\tZ: ",rZ)
+    return A, B, C
 
 def minimoErrorExponencial():
     minA = 0
     maxA = 0
     minB = 0
-    maxB = 10
+    maxB = 1
     minC = 0
     maxC = 0
 
@@ -103,7 +103,7 @@ def minimoErrorExponencial():
     rC = 1000
     rZ = 1000
 
-    maxY = puntos[0][1]
+    """maxY = puntos[0][1]
     maxX = puntos[0][0]
 
     for punto in puntos:
@@ -111,14 +111,28 @@ def minimoErrorExponencial():
             maxY = punto[1]
         if punto[0] > maxX:
             maxX = punto[0]
+        maxX = maxX + punto[0]
 
     maxY = maxY*maxY
     maxX = maxX*maxX
 
     minA = -1 * abs(maxY)
     maxA = abs(maxY)
+    maxB = abs(maxX)
     minC = -1 * abs(maxX)
-    maxC = abs(maxX)
+    maxC = abs(maxX)"""
+
+    maxX = puntos[0][0]
+    maxY = puntos[0][1]
+
+    for punto in puntos:
+        if punto[0] > maxX:
+            maxX = punto[0]
+        if punto[1] > maxY:
+            maxY = punto[1]
+
+    maxA = 2*maxX
+    maxC = 2*maxY
 
     for i in range(poblacion):
         A, B, C, Z = semillaAleatoria(2, minA, maxA, minB, maxB, minC, maxC)
@@ -127,8 +141,4 @@ def minimoErrorExponencial():
             rB = B
             rC = C
             rZ = Z
-    print("A: ",rA,"\tB: ",rB,"\tC: ",rC,"\tZ: ",rZ)
-
-
-
-minimoErrorExponencial()
+    return A, B, C
