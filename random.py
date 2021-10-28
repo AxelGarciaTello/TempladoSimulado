@@ -8,5 +8,3 @@ def random_numbers():
         number ^= int(i)
     bond = "0.{}{}".format(number,time.microsecond)
     return float(bond)
-
-print(random_numbers())
