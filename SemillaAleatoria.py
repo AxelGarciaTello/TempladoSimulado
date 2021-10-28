@@ -2,18 +2,20 @@ from miRandom import random_numbers
 
 puntos = [[3,6],[5,3],[5,8]]
 
+individuos = 1000
+
 def semillaAleatoria(tipo, minA, maxA, minB, maxB, minC = None, maxC = None):
     Z = 0
     min = 10000
     Sa = 0
     Sb = 0
     Sc = 0
-    for i in range(1000):
+    for i in range(individuos):
         Z = 0
         A = random_numbers()*(maxA-minA)+minA
         B = random_numbers()*(maxB-minB)+minB
         if tipo != 0:
-            C = random.uniform(0,1)*(maxC-minC)-minC
+            C = random_numbers()*(maxC-minC)+minC
         if tipo == 0:
             for punto in puntos:
                 Z = Z + (punto[1]-A*punto[0]-B)*(punto[1]-A*punto[0]-B)
