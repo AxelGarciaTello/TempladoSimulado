@@ -90,5 +90,45 @@ def minimoErrorCuadratico():
             rZ = Z
     print("A: ",rA,"\tB: ",rB,"\tC: ",rC,"\tZ: ",rZ)
 
+def minimoErrorExponencial():
+    minA = 0
+    maxA = 0
+    minB = 0
+    maxB = 10
+    minC = 0
+    maxC = 0
 
-minimoErrorCuadratico()
+    rA = 1000
+    rB = 1000
+    rC = 1000
+    rZ = 1000
+
+    maxY = puntos[0][1]
+    maxX = puntos[0][0]
+
+    for punto in puntos:
+        if punto[1] > maxY:
+            maxY = punto[1]
+        if punto[0] > maxX:
+            maxX = punto[0]
+
+    maxY = maxY*maxY
+    maxX = maxX*maxX
+
+    minA = -1 * abs(maxY)
+    maxA = abs(maxY)
+    minC = -1 * abs(maxX)
+    maxC = abs(maxX)
+
+    for i in range(poblacion):
+        A, B, C, Z = semillaAleatoria(2, minA, maxA, minB, maxB, minC, maxC)
+        if Z < rZ:
+            rA = A
+            rB = B
+            rC = C
+            rZ = Z
+    print("A: ",rA,"\tB: ",rB,"\tC: ",rC,"\tZ: ",rZ)
+
+
+
+minimoErrorExponencial()

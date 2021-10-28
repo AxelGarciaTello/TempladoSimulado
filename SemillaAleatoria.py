@@ -1,4 +1,5 @@
 from miRandom import random_numbers
+import math
 
 puntos = [[3,6],[5,3],[5,8]]
 
