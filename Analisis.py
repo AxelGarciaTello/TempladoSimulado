@@ -1,4 +1,4 @@
-from TempladoSimulado import *
+from SemillaAleatoria import *
 
 puntos = [[3,6],[5,3],[5,8]]
 
@@ -16,7 +16,7 @@ def minimoErrorLineal():
 
     minB = -1 * abs(maximo)
     maxB = abs(maximo)
-    A, B = templadoSimulado(0, minA, maxA, minB, maxB)
-    print(A, " ", B)
+    A, B, Z = semillaAleatoria(0, minA, maxA, minB, maxB)
+    print(A,"\t",B,"\t",Z)
 
 minimoErrorLineal()
