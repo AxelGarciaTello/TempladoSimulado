@@ -3,7 +3,7 @@ import math
 
 puntos = [[-7,-9],[9,-4],[6,-9],[7,1],[0,6],[-7,5],[9,-9],[4,8],[-1,9],[9,1]]
 
-individuos = 1000
+individuos = 3000
 
 #Semilla Aletoria
 def semillaAleatoria(tipo, minA, maxA, minB, maxB, minC = None, maxC = None):

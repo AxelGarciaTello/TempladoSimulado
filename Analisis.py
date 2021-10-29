@@ -1,7 +1,9 @@
 from SemillaAleatoria import *
 import numpy as np
+from multiprocessing.pool import ThreadPool
+pool = ThreadPool(processes=60)
 
-poblacion = 600
+poblacion = 120
 
 #Analisis de la Función Lineal
 def minimoErrorLineal():
@@ -29,7 +31,9 @@ def minimoErrorLineal():
     #Creamos las poblaciones a realizar
     #La población con Z menor se almacena y se devuelve en la función
     for i in range(poblacion):
-        A, B, Z = semillaAleatoria(0, minA, maxA, minB, maxB)
+        # A, B, Z = semillaAleatoria(0, minA, maxA, minB, maxB)
+        async_result = pool.apply_async(semillaAleatoria, (0, minA, maxA, minB, maxB))
+        A, B, Z = async_result.get()
         if Z < rZ:
             rA = A
             rB = B
@@ -99,7 +103,9 @@ def minimoErrorCuadratico():
     #Creamos las poblaciones a realizar
     #La población con Z menor se almacena y se devuelve en la función
     for i in range(poblacion):
-        A, B, C, Z = semillaAleatoria(1, minA, maxA, minB, maxB, minC, maxC)
+        # A, B, C, Z = semillaAleatoria(1, minA, maxA, minB, maxB, minC, maxC)
+        async_result = pool.apply_async(semillaAleatoria, (1, minA, maxA, minB, maxB, minC, maxC))
+        A, B, C, Z = async_result.get()
         if Z < rZ:
             rA = A
             rB = B
@@ -139,7 +145,9 @@ def minimoErrorExponencial():
     #Creamos las poblaciones a realizar
     #La población con Z menor se almacena y se devuelve en la función
     for i in range(poblacion):
-        A, B, C, Z = semillaAleatoria(2, minA, maxA, minB, maxB, minC, maxC)
+        # A, B, C, Z = semillaAleatoria(2, minA, maxA, minB, maxB, minC, maxC)
+        async_result = pool.apply_async(semillaAleatoria, (2, minA, maxA, minB, maxB, minC, maxC))
+        A, B, C, Z = async_result.get()
         if Z < rZ:
             rA = A
             rB = B

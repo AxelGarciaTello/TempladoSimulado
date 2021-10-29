@@ -1,5 +1,7 @@
 from Analisis import *
+import matplotlib.pyplot as plt
 import math
+import time
 
 al = 0
 bl = 0
@@ -41,7 +43,7 @@ def calcularDistanciasEuclidianas():
     print("lineal: \tA:", al, "\tB:", bl)
     response += "lineal:              A: {}   \tB: {} \n".format(al,bl)
     print("cuadratico: A:", ac, "\tB:", bc, "\tC:", cc)
-    response += "cuadratico:     A: {}   \tB: {} \tC: {}\n".format(ac,bc,cc)
+    response += "cuadratico:    A: {}   \tB: {} \tC: {}\n".format(ac,bc,cc)
     print("exponencial: A:", ag, "\tB:", bg, "\tC:", cg)
     response += "exponencial:  A: {}   \tB: {} \tC: {}\n\n".format(ag,bg,cg)
 
@@ -87,4 +89,23 @@ def calcularDistanciasEuclidianas():
 
     return response
 
-# calcularDistanciasEuclidianas()
+def graficador():
+    x = range(-25, 25)
+    # Graficar ambas funciones.
+    plt.plot(x, [calcularLineal(i) for i in x])
+    plt.plot(x, [calcularGaussiana(i) for i in x])
+    plt.plot(x, [calcularCuadratica(i) for i in x])
+    for punto in puntos:
+        plt.plot(punto[0],punto[1],"o",color="red",)
+    # Establecer el color de los ejes.
+    plt.axhline(0, color="black")
+    plt.axvline(0, color="black")
+    # Limitar los valores de los ejes.
+    plt.xlim(-15, 15)
+    plt.ylim(-10, 10)
+    # Guardar gráfico como imágen PNG.
+    plt.savefig("./static/img/grafica.png")
+    # Esperamos medio segundo para que se guarde correctamente
+    time.sleep(0.5)
+    # Mostrarlo.
+    # plt.show()

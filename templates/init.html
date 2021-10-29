@@ -3,7 +3,7 @@
 
 {% block contenido %}
 <!-- CONTENIDO --><br><br><br>
-<div id="ingresaDatos" class="row" style="margin-bottom: 5%;">    
+<div id="ingresaDatos" class="row" style="margin-bottom: 5%;">
     <h2 class="center-align">Puntos a Ingresar</h2>
     <div id="jsonArea" class="center-align">
 
@@ -16,13 +16,13 @@
                     <div class="input-field col m12 l6">
                         <i class="zmdi zmdi zmdi-pin-help prefix"></i>
                         <input id="coorX" name="coorX" type="number" class="validate" length="16" maxlength="16"
-                            minlength="1" required>
+                            minlength="1" required style="font-size: 28px;">
                         <label for="coorX">Coordenada X</label>
                     </div>
                     <div class="input-field col m12 l6">
                         <i class="zmdi zmdi zmdi-pin-help prefix"></i>
                         <input id="coorY" name="coorY" type="number" class="validate" length="16" maxlength="16"
-                            minlength="1" required>
+                            minlength="1" required style="font-size: 28px;">
                         <label for="coorY">Coordenada Y</label>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
 
     </article>
     <div class="row center-align notifyCoords" id="divElements">
-        
+
     </div>
 </div>
 
@@ -50,11 +50,14 @@
     <article class="col s12">
 
         <textarea name="areaDatos" id="areaDatos" class="datosArea" cols="40" rows="20" disabled>
-            
+
         </textarea><br><br>
         <div class="row center-align">
             <a href="/" class="waves-effect waves-light btn-large teal">Volver a calcular</a>
-        </div>        
+        </div><br><br>
+        <div class="row center-align">
+            <img id="grafica" src="" alt="">
+        </div>
     </article>
 </div>
 
@@ -62,5 +65,5 @@
 {% endblock %}
 
 {% block finalJS %}
-    <script src="{{ url_for('static',filename='js/index.js') }}"></script>
+<script src="{{ url_for('static',filename='js/index.js') }}"></script>
 {% endblock %}

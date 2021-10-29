@@ -59,7 +59,7 @@ const addJsonElement = json => {
         if (parameters.length > 2) {
             const jsonDiv = document.getElementById("jsonArea");
             dataJson = JSON.stringify(parameters);
-            jsonDiv.innerHTML = dataJson;            
+            jsonDiv.innerHTML = dataJson;
             swal({
                 title: "¿Desea realizar los calculos?",
                 text: "Esto tomará unos segundos",
@@ -76,17 +76,19 @@ const addJsonElement = json => {
                             arreglo: dataJson
                         },
                         cache: false,
-                        success: function (response) { 
+                        success: function (response) {
                             swal("Cálculo exitoso");
                             divElements.innerHTML = "";
                             parameters = [];
                             jsonDiv.innerHTML = "";
                             let ingresaDatos = document.getElementById("ingresaDatos");
-                            ingresaDatos.style.display="none";
+                            ingresaDatos.style.display = "none";
                             let muestraDatos = document.getElementById("muestraDatos");
-                            muestraDatos.style.display="block";
+                            muestraDatos.style.display = "block";
                             let areaDatos = document.getElementById("areaDatos");
                             areaDatos.value = response;
+                            let grafica = document.getElementById("grafica");
+                            grafica.setAttribute("src", "/static/img/grafica.png");
                         },
                         error: function (response) { swal("Server Error", response); }
                     })
