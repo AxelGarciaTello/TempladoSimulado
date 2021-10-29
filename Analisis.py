@@ -3,7 +3,7 @@ import numpy as np
 from multiprocessing.pool import ThreadPool
 pool = ThreadPool(processes=60)
 
-poblacion = 120
+poblacion = 100
 
 #Analisis de la Función Lineal
 def minimoErrorLineal():
