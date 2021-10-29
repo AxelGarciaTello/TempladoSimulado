@@ -47,6 +47,9 @@ def calcularDistanciasEuclidianas():
     print("exponencial: A:", ag, "\tB:", bg, "\tC:", cg)
     response += "exponencial:  A: {}   \tB: {} \tC: {}\n\n".format(ag,bg,cg)
 
+    print("x\ty\t yl\t  Dist\t    yg\t  Dist\t    yc\t  Dist\n")
+    response += "x\ty\t yl    \t    Dist\t    yg\t  Dist\t    yc\t  Dist\n"
+
     for par in puntos:
         #Resolvemos las ecuaciones con los valores de X
         yl = calcularLineal(par[0])
