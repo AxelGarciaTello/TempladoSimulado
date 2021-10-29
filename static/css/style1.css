@@ -690,3 +690,26 @@ body, html{
 @media (min-width: 1200px) {
     
 }
+
+.datosArea{    
+    font-size: 20px;
+    height: auto;
+    animation: pulse-black 1.5s 15;
+}
+
+@keyframes pulse-black {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+    
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 12px rgba(0, 0, 0, 0);
+    }
+    
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+  }

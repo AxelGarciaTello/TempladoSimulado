@@ -3,8 +3,7 @@
 
 {% block contenido %}
 <!-- CONTENIDO --><br><br><br>
-<div class="row" style="margin-bottom: 5%;">
-    <!-- Timeline -->
+<div id="ingresaDatos" class="row" style="margin-bottom: 5%;">    
     <h2 class="center-align">Puntos a Ingresar</h2>
     <div id="jsonArea" class="center-align">
 
@@ -45,6 +44,20 @@
         
     </div>
 </div>
+
+<div id="muestraDatos" class="row" style="margin-bottom: 5%; display: none; width: 75%;">
+    <h2 class="center-align">Resultados obtenidos</h2>
+    <article class="col s12">
+
+        <textarea name="areaDatos" id="areaDatos" class="datosArea" cols="40" rows="20" disabled>
+            
+        </textarea><br><br>
+        <div class="row center-align">
+            <a href="/" class="waves-effect waves-light btn-large teal">Volver a calcular</a>
+        </div>        
+    </article>
+</div>
+
 <!-- CONTENIDO -->
 {% endblock %}
 

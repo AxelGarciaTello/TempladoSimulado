@@ -1,8 +1,6 @@
 from Analisis import *
 import math
 
-puntos = [[-7,-9],[9,-4],[6,-9],[7,1],[0,6],[-7,5],[9,-9],[4,8],[-1,9],[9,1]]
-
 al = 0
 bl = 0
 
@@ -28,6 +26,7 @@ def calcularCuadratica(x):
     return ac*x*x + bc*x + cc
 
 def calcularDistanciasEuclidianas():
+    response = ""
     sumaLineal = 0
     sumaGaussiana = 0
     sumaCuadratica = 0
@@ -40,8 +39,11 @@ def calcularDistanciasEuclidianas():
     ag, bg, cg = minimoErrorExponencial()
 
     print("lineal: \tA:", al, "\tB:", bl)
+    response += "lineal:              A: {}   \tB: {} \n".format(al,bl)
     print("cuadratico: A:", ac, "\tB:", bc, "\tC:", cc)
+    response += "cuadratico:     A: {}   \tB: {} \tC: {}\n".format(ac,bc,cc)
     print("exponencial: A:", ag, "\tB:", bg, "\tC:", cg)
+    response += "exponencial:  A: {}   \tB: {} \tC: {}\n\n".format(ag,bg,cg)
 
     for par in puntos:
         #Resolvemos las ecuaciones con los valores de X
@@ -57,6 +59,7 @@ def calcularDistanciasEuclidianas():
             "{:.3f}".format(disEucL),"\t","{:.3f}".format(yg),"\t",
             "{:.3f}".format(disEucG),"\t","{:.3f}".format(yc),"\t",
             "{:.3f}".format(disEucC))
+        response += "{} \t {} \t {:.3f} \t {:.3f} \t {:.3f} \t {:.3f} \t {:.3f} \t {:.3f} \n".format(par[0],par[1],yl,disEucL,yg,disEucG,yc,disEucC)
 
         #Vamos sumando esta diferencia de distancias
         sumaLineal = sumaLineal + disEucL
@@ -65,15 +68,23 @@ def calcularDistanciasEuclidianas():
 
     #Imprimimos las diferencias
     print("Suma de la ecuación lineal","{:.3f}".format(sumaLineal))
+    response += "\nSuma de la ecuación lineal:            {:.3f}\n".format(sumaLineal)
     print("Suma de la ecuación Gaussiana","{:.3f}".format(sumaGaussiana))
+    response += "Suma de la ecuación Gaussiana:   {:.3f}\n".format(sumaGaussiana)
     print("Suma de la ecuación cuadratica","{:.3f}".format(sumaCuadratica))
+    response += "Suma de la ecuación cuadratica:   {:.3f}\n".format(sumaCuadratica)
 
     #Elegimos la funciones con menor diferencia
     if sumaLineal<sumaGaussiana and sumaLineal<sumaCuadratica:
         print("La menor distacia es de la ecuación lineal")
+        response += "\n La menor distacia es de la ecuación lineal"
     elif sumaGaussiana<sumaLineal and sumaGaussiana<sumaCuadratica:
         print("La menor distancia es de la ecuación Gaussiana")
+        response += "\n La menor distancia es de la ecuación Gaussiana"
     else:
         print("La menor distancia es de la ecuación cuadratica")
+        response += "\n La menor distancia es de la ecuación cuadratica"
+
+    return response
 
 # calcularDistanciasEuclidianas()

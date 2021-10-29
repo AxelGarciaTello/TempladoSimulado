@@ -1,8 +1,6 @@
 from SemillaAleatoria import *
 import numpy as np
 
-puntos = [[-7,-9],[9,-4],[6,-9],[7,1],[0,6],[-7,5],[9,-9],[4,8],[-1,9],[9,1]]
-
 poblacion = 600
 
 #Analisis de la Función Lineal
