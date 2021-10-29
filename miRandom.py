@@ -1,5 +1,6 @@
 from datetime import datetime
 
+#Función pseudoaleatoria
 def random_numbers():
     number = 0
     time = datetime.now()
