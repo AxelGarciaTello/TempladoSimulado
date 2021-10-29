@@ -2,46 +2,52 @@
 {% block title %}.: Inicio :.{% endblock %}
 
 {% block contenido %}
-<!-- CONTENIDO --><br><br><br>    
-        <div class="row" style="margin-bottom: 5%;">
-            <!-- Timeline -->
-            <h2 class="center-align">Puntos a Ingresar</h2>
-            <article class="col s12">
+<!-- CONTENIDO --><br><br><br>
+<div class="row" style="margin-bottom: 5%;">
+    <!-- Timeline -->
+    <h2 class="center-align">Puntos a Ingresar</h2>
+    <div id="jsonArea" class="center-align">
 
-                <div class="full-width center-align" style="margin: 40px 0; font-size: 24px;">
-                	<form method="POST" action="/adm0">
-                		<input type="hidden" name="opc" id="opc" value="1">
-                    	<button type="submit" class="waves-effect waves-light btn-large blue"><i class="zmdi zmdi-swap-vertical-circle left"></i>Escanear Red</button>
-                	</form>
+    </div>
+    <article class="col s12">
+
+        <div class="full-width center-align" style="margin: 40px 0; font-size: 24px;">
+            <form method="POST" action="/calculate" id="formCoordenadas">
+                <div class="row" style="width: 50%;">
+                    <div class="input-field col m12 l6">
+                        <i class="zmdi zmdi zmdi-pin-help prefix"></i>
+                        <input id="coorX" name="coorX" type="number" class="validate" length="16" maxlength="16"
+                            minlength="1" required>
+                        <label for="coorX">Coordenada X</label>
+                    </div>
+                    <div class="input-field col m12 l6">
+                        <i class="zmdi zmdi zmdi-pin-help prefix"></i>
+                        <input id="coorY" name="coorY" type="number" class="validate" length="16" maxlength="16"
+                            minlength="1" required>
+                        <label for="coorY">Coordenada Y</label>
+                    </div>
                 </div>
-
-            </article>                    
+                <div class="row" style="width: 50%;">
+                    <div class="input-field col m12 l6">
+                        <button id="btnAdd" type="button" class="waves-effect waves-light btn-large pink darken-1"><i
+                                class="zmdi zmdi-plus-circle left"></i>Agregar Puntos</button>
+                    </div>
+                    <div class="input-field col m12 l6">
+                        <button id="btnCalculate" type="button" class="waves-effect waves-light btn-large blue"><i
+                                class="zmdi zmdi-swap-vertical-circle left"></i>Calcular Puntos</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="row" style="margin-bottom: 15%;">
-        	<article class="col s12">
 
-                <div class="col s12 m4 full-width center-align" style="margin: 40px 0; font-size: 24px;">
-                	<form method="POST" action="/adm0">
-                		<input type="hidden" name="opc" id="opc" value="2">
-                    	<button type="submit" class="waves-effect waves-light btn-large indigo"><i class="zmdi zmdi-swap-vertical-circle left"></i>RIP</button>
-                	</form>
-                </div>
+    </article>
+    <div class="row center-align notifyCoords" id="divElements">
+        
+    </div>
+</div>
+<!-- CONTENIDO -->
+{% endblock %}
 
-                <div class="col s12 m4 full-width center-align" style="margin: 40px 0; font-size: 24px;">
-                    <form method="POST" action="/adm0">
-                		<input type="hidden" name="opc" id="opc" value="3">
-                    	<button type="submit" class="waves-effect waves-light btn-large indigo"><i class="zmdi zmdi-swap-vertical-circle left"></i>OSPF</button>
-                	</form>
-                </div>
-
-                <div class="col s12 m4 full-width center-align" style="margin: 40px 0; font-size: 24px;">
-                	<form method="POST" action="/adm0">
-                		<input type="hidden" name="opc" id="opc" value="4">
-                    	<button type="submit" class="waves-effect waves-light btn-large indigo"><i class="zmdi zmdi-swap-vertical-circle left"></i>EIGRP</button>
-                	</form>
-                </div>
-
-            </article>
-        </div>        
-<!-- CONTENIDO -->        
+{% block finalJS %}
+    <script src="{{ url_for('static',filename='js/index.js') }}"></script>
 {% endblock %}

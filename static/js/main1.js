@@ -138,8 +138,8 @@ $(document).ready(function(){
     });
 })(jQuery);
 
-let input = document.createElement("input");
-input.type = "text";
-input.className = "prueba-css"; // set the CSS class
-// container.appendChild(input); // put it into the DOM
-console.log(input.value);
+// let input = document.createElement("input");
+// input.type = "text";
+// input.className = "prueba-css"; // set the CSS class
+// // container.appendChild(input); // put it into the DOM
+// console.log(input.value);

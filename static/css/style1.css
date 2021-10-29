@@ -288,6 +288,10 @@ body, html{
     
 }
 /*///////////////////////// Estilos login.html /////////////////////////*/
+.notifyCoords{    
+    padding-left: 25%; 
+    padding-right: 25%;
+}
 #login{
     background-image: url(../assets/img/MaterialFontLogin.jpg);
 }
