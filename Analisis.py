@@ -25,8 +25,8 @@ def minimoErrorLineal():
 
     #Para ampliar nuestra area de busqueda de la función vamos a usar como limites
     #5 veces el valor maximo de Y
-    minB = -1 * abs(maximoY*5)
-    maxB = abs(maximoY*5)
+    minB = -1 * abs(maximoY)
+    maxB = abs(maximoY)
 
     #Creamos las poblaciones a realizar
     #La población con Z menor se almacena y se devuelve en la función
