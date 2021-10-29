@@ -76,4 +76,4 @@ def calcularDistanciasEuclidianas():
     else:
         print("La menor distancia es de la ecuación cuadratica")
 
-calcularDistanciasEuclidianas()
+# calcularDistanciasEuclidianas()
